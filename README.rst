@@ -7,5 +7,5 @@ We consider a system of conformist and contrarian oscillators coupled locally in
 
 Reference
 ----------------------------
-`Danh-Tai Hoang, Junghyo Jo, and Hyunsuk Hong, Traveling wave in a three-dimensional array of conformist and contrarian oscillators, Physical Review E, 91, 032135 (2015). <https://journals.aps.org/pre/abstract/10.1103/PhysRevE.91.032135>`_.
+`Danh-Tai Hoang, Junghyo Jo, and Hyunsuk Hong, Traveling wave in a three-dimensional array of conformist and contrarian oscillators, Physical Review E, 91, 032135 (2015). <https://journals.aps.org/pre/abstract/10.1103/PhysRevE.91.032135>`_
 

@@ -1,0 +1,31 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 40
+set autoscale
+set size ratio 1.0
+set key right top
+set pointsize 1.4
+set xlabel "p"
+set ylabel "delR"
+set xrange [0.5999:0.9001]
+set yrange [0:15]
+set ytics 5
+set mytics 1
+set xtics 0.1
+set mxtics 5
+set output "delR-L.eps"
+plot "delta_R_Q005_L12.txt" u 1:2 notitle w l lt 1 lw 3 lc rgb "red",\
+"delta_R_Q005_L12.txt" u 1:2 notitle w p pt 11 lc rgb "red",\
+"delta_R_Q005_L16.txt" u 1:2 notitle w l lt 1 lw 3 lc rgb "blue",\
+"delta_R_Q005_L16.txt" u 1:2 notitle w p pt 13 lc rgb "blue",\
+"delta_R_Q005_L24.txt" u 1:2 notitle w l lt 1 lw 3 lc rgb "black",\
+"delta_R_Q005_L24.txt" u 1:2 notitle w p pt 7 lc rgb "black"
+EOF
+#"delta_R_Q005_L6.txt" u 1:2 notitle w l lt 1 lc rgb "pink",\
+#"delta_R_Q005_L6.txt" u 1:2 notitle w p pt 11 lc rgb "pink",\
+#"delta_R_Q005_L8.txt" u 1:2 notitle w l lt 2 lc rgb "black",\
+#"delta_R_Q005_L8.txt" u 1:2 notitle w p pt 11 lc rgb "black",\
+#"delta_R_Q005_L32.txt" u 1:2 notitle w l lt 3 lc rgb "red",\
+#"delta_R_Q005_L32.txt" u 1:2 notitle w p pt 65 lc rgb "black"
+

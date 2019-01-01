@@ -1,0 +1,15 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced color "Times-Roman" 18
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "Jbb"
+set ylabel "Jab"
+set zlabel "delta"
+set pm3d
+set output "3D.eps"
+splot "average_thermal.dat" u 3:4:9 t "3D" w p lt -1 pt 7
+EOF
+

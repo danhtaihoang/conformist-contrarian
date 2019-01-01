@@ -1,0 +1,21 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 24
+set autoscale
+set size ratio 1
+set key right top
+set pointsize 0.3
+set xlabel "x"
+set ylabel "y"
+set object circle at 0,0 size 10.0 fc rgb "green"
+set object circle at 0,0 size 7.0 fc rgb "green"
+set object circle at 0,0 size 0.1 fc rgb "black"
+set xrange [-14:14]
+set yrange [-14:14]
+set output "CircleR.eps"
+plot "phi_a.txt" u 3:4 notitle w p pt 7 lt 3,\
+"phi_b.txt" u 3:4 notitle w p pt 7 lt 1,\
+tan(1.9890662321099510)*x w l notitle lt 3,\
+tan(5.1337751634667672)*x w l notitle lt 1
+EOF

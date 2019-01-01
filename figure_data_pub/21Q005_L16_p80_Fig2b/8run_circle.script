@@ -1,0 +1,5 @@
+#!/bin/sh
+
+rm a.out
+gfortran -Wall -fdefault-integer-8 -fdefault-real-8 0plot_phase_circle.f90
+./a.out

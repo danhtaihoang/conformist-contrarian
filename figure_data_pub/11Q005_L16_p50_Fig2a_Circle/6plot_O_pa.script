@@ -1,0 +1,17 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced color "Times-Roman" 26
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "pa"
+set ylabel "Big Omega"
+set xrange [0.2:1]
+set output "Big Omega-p.eps"
+set title "Global : L=8; omega=0; a=0; Q=0.5"
+plot "average.txt" u 1:5 notitle w l lt 1 lc rgb "red",\
+"average.txt" u 1:5 notitle w p lt 1 pt 7 lc rgb "blue"
+EOF
+
+

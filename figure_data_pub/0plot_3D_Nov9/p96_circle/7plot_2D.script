@@ -1,0 +1,31 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced solid eps color 28
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "phi"
+set ylabel "time"
+set zlabel "Pa"
+set output "Pa_2D.eps"
+set view map
+set palette rgbformulae 33,13,10
+splot "histogram_a.dat" u 1:2:3 w l palette
+EOF
+
+gnuplot -persist << EOF
+set term postscript enhanced solid eps color 28
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "phi"
+set ylabel "time"
+set zlabel "Pb"
+set output "Pb_2D.eps"
+set view map
+splot "histogram_b.dat" u 1:2:3 w l palette
+EOF
+
+#set palette defined (0.8 "black", 0.81 "blue", 0.86 "brown", 0.88 "gray", 0.9 "orange", 1.5 "pink", 2 "purple", 3 "red", 5 "yellow")
+#Black , Blue, Brown, Green, Gray, Orange, Pink, Purple, Red, White, Yellow

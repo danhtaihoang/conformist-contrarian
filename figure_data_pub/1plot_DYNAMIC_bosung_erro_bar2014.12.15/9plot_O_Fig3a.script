@@ -1,0 +1,16 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 26
+set autoscale
+set key right top
+set pointsize 1.2
+set xlabel "pa"
+set ylabel "O"
+set output "O.eps"
+plot "O.txt" u 1:2:3:4 w yerrorbars notitle lt 1 pt 13 lc rgb "blue",\
+"O.txt" u 1:2 notitle w l lt 1 lc rgb "blue"
+EOF
+#"R.txt" u 1:2 notitle w p pt 7 lc rgb "black",\
+#"Ra.txt" u 1:2 notitle w p pt 13 lc rgb "blue",\
+#"Rb.txt" u 1:2 notitle w p pt 11 lc rgb "red"

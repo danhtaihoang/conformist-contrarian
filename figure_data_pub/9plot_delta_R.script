@@ -1,0 +1,18 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced color 28
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "pa"
+set ylabel "deltaR"
+set xrange [0.5:1]
+set xtics 0.1
+set mxtics 5
+set output "deltaR-L8.eps"
+plot "delta_R_L8.txt" u 1:2 notitle w l lt 1 lc rgb "black",\
+"delta_R_L8.txt" u 1:2 notitle w p lt 1 pt 7 lc rgb "black"
+EOF
+
+

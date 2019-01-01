@@ -1,0 +1,19 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color "Times-Roman" 20
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "Jbb"
+set ylabel "Jab"
+set zlabel "cost"
+set xrange [0.7:1.2]
+set yrange [0.7:1.1]
+set output "3D_color1.eps"
+set palette defined (0.8 "black", 0.82 "blue", 0.9 "red", 10 "yellow")
+splot "a_new.dat" u 1:2:3 w p palette pt 7 ps 2
+EOF
+#set view map
+#set palette defined (0.8 "black", 0.82 "blue", 0.9 "red", 10 "yellow")
+#set palette defined (0.8 "black", 0.81 "blue", 0.86 "brown", 0.88 "gray", 0.9 "orange", 1.5 "pink", 2 "purple", 3 "red", 5 "yellow")

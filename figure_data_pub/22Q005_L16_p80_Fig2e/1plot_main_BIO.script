@@ -1,0 +1,123 @@
+#!/bin/sh
+
+#=========================================================================================
+# Loai bo, chi lay tu cot 31 den cot 35 cua file parameter.in
+cut -c31-35 1parameter.in > parameter_file_giantiep.dat
+
+# Doc gia tri dua vao so dong
+i=1
+while [ $i -le 25 ]
+do
+read value
+
+if [ $i -eq 3 ]
+then
+load=$value
+fi
+
+if [ $i -eq 4 ]
+then
+GS=$value
+fi
+
+if [ $i -eq 8 ]
+then
+nx=$value
+fi
+
+if [ $i -eq 9 ]
+then
+ny=$value
+fi
+
+if [ $i -eq 10 ]
+then
+nz=$value
+fi
+
+if [ $i -eq 14 ]
+then
+pa=$value
+fi
+
+if [ $i -eq 15 ]
+then
+omega=$value
+fi
+
+if [ $i -eq 16 ]
+then
+A=$value
+fi
+
+if [ $i -eq 17 ]
+then
+Ka=$value
+fi
+
+if [ $i -eq 18 ]
+then
+Kb=$value
+fi
+
+i=$(echo "scale=0; $i+1" | bc)
+done < parameter_file_giantiep.dat
+
+rm parameter_file_giantiep.dat
+echo "Load phi: " $load
+echo "GS: " $GS
+echo "L = " $nx
+echo "pa: " $pa
+echo "omega: " $omega
+echo "A: " $A
+echo "Q: " $Kb
+
+# =============================================================================================
+# =============================================================================================
+# VE DO THI
+# =============================================================================================
+# =============================================================================================
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 36
+set autoscale
+set size ratio 0.7
+set key right top
+set pointsize 1
+set xlabel "t"
+set ylabel "r"
+set xrange [0:3000]
+set yrange [-0.05:1.05]
+set mytics 1
+set ytics 0.2
+set xtics 1000
+set mxtics 1
+set output "r.eps"
+plot "r_time.dat" u 1:2 notitle w l lt 12 lw 3 lc rgb "blue",\
+"r_time.dat" u 1:3 notitle w l lt 12 lw 3 lc rgb "red",\
+"r_time.dat" u 1:4 notitle w l lt -1 lw 2
+EOF
+#set xtics 1000
+#set xrange [0:5000]
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 36
+set autoscale
+set size ratio 0.7
+set key right top
+set pointsize 1
+set xlabel "t"
+set ylabel "phi"
+set xrange [0:3000]
+set yrange [0:6.284]
+set ytics 3.142
+set mytics 2
+set xtics 1000
+set mxtics 5
+set output "phi.eps"
+plot "phi_time.dat" u 1:2 notitle w l lt 1 lw 2 lc rgb "blue",\
+"phi_time.dat" u 1:3 notitle w l lt 1 lw 2 lc rgb "red",\
+"phi_time.dat" u 1:4 notitle w l lt 1 lw 2 lc rgb "black"
+EOF
+
+

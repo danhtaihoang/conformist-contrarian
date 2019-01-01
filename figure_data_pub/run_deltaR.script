@@ -1,0 +1,4 @@
+#!/bin/sh
+rm a.out
+gfortran -Wall delta_R.f90
+./a.out

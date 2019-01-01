@@ -1,0 +1,25 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 26
+set autoscale
+set key right top
+set pointsize 1.2
+set xlabel "p"
+set ylabel "R"
+set xrange [0.4999:1]
+set yrange [0:1]
+set xtics 0.1
+set mxtics 5
+set ytics 0.2
+set mytics 1
+set output "Fig7.eps"
+plot "R_Q01_L16.txt" u 1:2:3:4 w yerrorbars notitle lt 1 pt 7 lw 0.5 lc rgb "black",\
+"R_Q01_L16.txt" u 1:2 notitle w l lt 1 lw 2 lc rgb "black",\
+"R_L16.txt" u 1:2:3:4 w yerrorbars notitle lt 1 pt 13 lw 0.5 lc rgb "blue",\
+"R_L16.txt" u 1:2 notitle w l lt 1 lw 2 lc rgb "blue",\
+"R_Q001_L16.txt" u 1:2:3:4 w yerrorbars notitle lt 1 pt 11 lw 0.5 lc rgb "red",\
+"R_Q001_L16.txt" u 1:2 notitle w l lt 1 lw 2 lc rgb "red",\
+"R_Q05_L16.txt" u 1:2:3:4 w yerrorbars notitle lt 1 pt 65 lw 0.5 lc rgb "black",\
+"R_Q05_L16.txt" u 1:2 notitle w l lt 3 lw 2 lc rgb "black"
+EOF
